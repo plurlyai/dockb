@@ -62,6 +62,13 @@ Use this repo to capture and evolve documentation assistant behavior for a custo
 
 This repository currently has a minimal skeleton. Add your production instruction and skill definitions to enable the full documentation agent experience.
 
+## ✅ Quick verification
+
+To verify your custom doc agent behavior:
+1. Ask the agent to generate a project README from current files.
+2. Confirm output includes: purpose, setup, usage, contribution, and extension guidance.
+3. Confirm style: clear headings, bullets, short code examples, and explicit assumptions.
+
 ---
 
 If you want, I can also add a starter `docs.instructions.md` and `docs.skill.md` scaffold now so your custom doc agent is ready to run in one pass.
