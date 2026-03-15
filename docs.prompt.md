@@ -25,6 +25,14 @@ Given a code snippet or file path, produce a short technical doc section with:
 
 Answer the user’s documentation question directly. If the question is about code behavior, reference file names and symbols. If uncertain, ask for clarifying details.
 
+### 4) Generate or update CHANGELOG
+
+Based on the repository history and current `docs.changelog.md`, generate or update the changelog following [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/):
+- Keep an `## [Unreleased]` section at the top
+- Group changes under: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`
+- Use ISO 8601 dates (`YYYY-MM-DD`) for release entries
+- Follow [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) for version numbers
+
 ## Response Style
 
 - Use active voice and short sentences.

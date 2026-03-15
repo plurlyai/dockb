@@ -14,6 +14,7 @@ This repository stores the instruction and skill definitions for a custom docume
 | `docs.instructions.md` | Behavior rules and guardrails |
 | `docs.skill.md` | Capabilities and output expectations |
 | `docs.prompt.md` | Reusable prompt templates |
+| `docs.changelog.md` | Project changelog ([Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/)) |
 
 ## ✅ Purpose
 
@@ -63,6 +64,15 @@ Copy [`docs.prompt.md`](docs.prompt.md) into your target repository root for reu
 - If uncertain, return verified sources and cite file or URL context.
 - Prefer structured responses with headings and code examples when applicable.
 - Keep agent responses current by referencing repository docs or external docs in real time.
+
+## 📋 Versioning and Changelog
+
+This project follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) and [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
+
+- Version format: `MAJOR.MINOR.PATCH`
+- All notable changes are tracked in [`docs.changelog.md`](docs.changelog.md).
+- The changelog always includes an `## [Unreleased]` section for upcoming changes.
+- Changes are grouped under: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
 ## 🧩 Extending the Agent
 

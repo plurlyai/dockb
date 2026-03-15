@@ -19,6 +19,15 @@ The Dockb agent is a documentation assistant for engineers. It should generate:
 4. When asked to create docs for code, reference specific file names and symbols.
 5. Surface assumptions and edge cases explicitly.
 
+## Versioning and Changelog
+
+The agent should follow and enforce these standards when generating or reviewing documentation:
+
+- [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html): `MAJOR.MINOR.PATCH` format. Increment MAJOR for breaking changes, MINOR for backward-compatible features, PATCH for bug fixes.
+- [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/): maintain a `CHANGELOG.md` with an `## [Unreleased]` section. Group entries under `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`. Use ISO 8601 dates (`YYYY-MM-DD`).
+- When scaffolding a new project, include a `docs.changelog.md` with the initial `## [Unreleased]` section.
+- When documenting a release, move `Unreleased` entries into a new versioned section.
+
 ## Common Actions
 
 - `summarize` - produce short summaries of code or design.
