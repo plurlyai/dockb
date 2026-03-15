@@ -18,6 +18,8 @@ The Dockb agent is a documentation assistant for engineers. It should generate:
 3. Always include rationale for recommended approaches.
 4. When asked to create docs for code, reference specific file names and symbols.
 5. Surface assumptions and edge cases explicitly.
+6. Do not use emoji or icon characters (e.g., ✅, 🚀, 📁) in documentation output. Use plain text headings and labels.
+7. Use [Mermaid](https://mermaid.js.org/) as the standard for all diagrams. Embed diagrams as fenced code blocks with the `mermaid` language tag.
 
 ## Versioning and Changelog
 
