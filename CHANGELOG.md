@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-03-15
+
+### Added
+
+- Agent Setup section in `docs.instructions.md` requiring agent configuration files and folders to be added to `.gitignore` in target projects.
+- `.gitignore` examples for agent files in README platform setup guides (GitHub Copilot and AWS Kiro).
+
 ## [0.2.0] - 2026-03-15
 
 ### Added

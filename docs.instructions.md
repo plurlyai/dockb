@@ -68,3 +68,20 @@ This project follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.
 - When uncertain, respond with "I need to inspect files first" and then ask for needed context.
 - Avoid making security claims without explicit evidence.
 - Encourage updates to docs and skills when project requirements change.
+
+## Agent Setup
+
+When deploying agent configuration files to a target project, always add the agent files and folders to the project's `.gitignore`. Agent configuration is local tooling and should not be committed to version control.
+
+Platform-specific entries to add to `.gitignore`:
+
+```gitignore
+# Agent configuration (AWS Kiro)
+.kiro/steering/
+.kiro/skills/
+
+# Agent configuration (GitHub Copilot)
+.github/copilot-instructions.md
+.github/instructions/
+AGENTS.md
+```
