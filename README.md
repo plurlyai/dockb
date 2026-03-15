@@ -14,7 +14,7 @@ This repository stores the instruction and skill definitions for a custom docume
 | `docs.instructions.md` | Behavior rules and guardrails |
 | `docs.skill.md` | Capabilities and output expectations |
 | `docs.prompt.md` | Reusable prompt templates |
-| `docs.changelog.md` | Project changelog ([Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/)) |
+| `docs.changelog.md` | Changelog template for agent-generated projects |
 
 ## ✅ Purpose
 
@@ -24,55 +24,12 @@ Use this repo to capture and evolve documentation assistant behavior. It contain
 2. **Tool actions**: helper commands and retrieval actions.
 3. **Domain knowledge**: curated documentation context and retrieval pipelines.
 
-## 🚀 Setup Guide (GitHub Copilot + VS Code)
-
-> **Scope**: This setup applies per-repository using **GitHub Copilot** with **VS Code** as the code editor. Each repository gets its own agent configuration. Other editors or agent frameworks may require different setup steps.
-
-### Prerequisites
-
-- VS Code installed
-- GitHub Copilot extension installed and active
-- GitHub Copilot Chat extension installed
-- A target repository to add documentation agent support to
-
-### Step 1: Copy the agent definition
-
-Copy [`.agent.md`](.agent.md) into your target repository root. Update the `name`, `description`, and `applyTo` patterns to match your project.
-
-### Step 2: Copy the instructions file
-
-Copy [`docs.instructions.md`](docs.instructions.md) into your target repository root. Update the Project Context section with your project type, language, and target audience.
-
-### Step 3: Copy the skill file
-
-Copy [`docs.skill.md`](docs.skill.md) into your target repository root. Add project-specific actions as needed.
-
-### Step 4 (Optional): Copy the prompt template file
-
-Copy [`docs.prompt.md`](docs.prompt.md) into your target repository root for reusable prompt patterns.
-
-### Customizing for Your Project
-
-1. Update `docs.instructions.md` with your project context (language, framework, audience).
-2. Add project-specific actions to `docs.skill.md`.
-3. Add prompt templates to `docs.prompt.md` for recurring documentation tasks.
-4. Adjust `applyTo` patterns in `.agent.md` to match your file types.
-
 ## 🧠 Agent Design Guidelines
 
 - Always prefer accurate, concise documentation outputs.
 - If uncertain, return verified sources and cite file or URL context.
 - Prefer structured responses with headings and code examples when applicable.
 - Keep agent responses current by referencing repository docs or external docs in real time.
-
-## 📋 Versioning and Changelog
-
-This project follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) and [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
-
-- Version format: `MAJOR.MINOR.PATCH`
-- All notable changes are tracked in [`docs.changelog.md`](docs.changelog.md).
-- The changelog always includes an `## [Unreleased]` section for upcoming changes.
-- Changes are grouped under: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 
 ## 🧩 Extending the Agent
 
@@ -82,8 +39,43 @@ This project follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.
 
 ## ✅ Quick Verification
 
-1. Open your repo in VS Code.
-2. Open GitHub Copilot Chat (Ctrl+Shift+I / Cmd+Shift+I).
-3. Ask the agent: "Generate a project overview README."
-4. Confirm output includes: purpose, setup, usage, and contribution sections.
-5. Confirm style: clear headings, bullets, short code examples, and explicit assumptions.
+1. Open your repo in your editor.
+2. Ask the agent: "Generate a project overview README."
+3. Confirm output includes: purpose, setup, usage, and contribution sections.
+4. Confirm style: clear headings, bullets, short code examples, and explicit assumptions.
+
+---
+
+## 🚀 Platform Setup Guides
+
+These guides tell the documentation agent how to adapt the `docs.*` template files in this repository to each platform's expected file structure and conventions.
+
+### GitHub Copilot
+
+Reference: [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
+
+When generating documentation agent configuration for a GitHub Copilot project, map the template files as follows:
+
+| Template source | Target location | Notes |
+|-----------------|-----------------|-------|
+| `docs.instructions.md` | `.github/copilot-instructions.md` | Repository-wide custom instructions. Adapt the Project Context section to the target project. |
+| `docs.skill.md` | `.github/instructions/docs.instructions.md` | Path-specific instructions. Add `applyTo` frontmatter to scope by file pattern (e.g., `"**/*.md,**/*.mdx"`). Merge skill rules and output expectations here. |
+| `docs.prompt.md` | Not directly mapped | Use as reference when crafting prompts. GitHub Copilot does not have a dedicated prompt template file. |
+| `docs.changelog.md` | Not directly mapped | Use as reference when generating a `CHANGELOG.md` for the target project. |
+| `.agent.md` | `AGENTS.md` at repository root | Convert YAML agent config to Markdown agent instructions. The nearest `AGENTS.md` in the directory tree takes precedence. |
+
+Expected target structure:
+
+```
+target-repo/
+├── .github/
+│   ├── copilot-instructions.md              ← from docs.instructions.md
+│   └── instructions/
+│       └── docs.instructions.md             ← from docs.skill.md (with applyTo frontmatter)
+├── AGENTS.md                                ← from .agent.md
+└── CHANGELOG.md                             ← from docs.changelog.md template
+```
+
+<!-- ### Claude Code -->
+
+<!-- ### OpenAI Codex -->
