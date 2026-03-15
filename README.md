@@ -76,6 +76,15 @@ target-repo/
 └── CHANGELOG.md                             ← from docs.changelog.md template
 ```
 
+Add agent configuration paths to the target project's `.gitignore` to keep agent files out of version control:
+
+```gitignore
+# Agent configuration (GitHub Copilot)
+.github/copilot-instructions.md
+.github/instructions/
+AGENTS.md
+```
+
 ### AWS Kiro
 
 Reference: [Kiro Steering and Skills](https://kiro.dev/docs/steering/)
@@ -109,6 +118,14 @@ target-repo/
 │   └── skills/
 │       └── docs-skill.md                    ← from docs.skill.md
 └── CHANGELOG.md                             ← from docs.changelog.md template
+```
+
+Add agent configuration paths to the target project's `.gitignore` to keep agent files out of version control:
+
+```gitignore
+# Agent configuration (AWS Kiro)
+.kiro/steering/
+.kiro/skills/
 ```
 
 Example steering file with conditional inclusion (`docs-instructions.md`):
