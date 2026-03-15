@@ -4,7 +4,7 @@
 
 ### 1) Generate project README
 
-You are a documentation specialist. Based on the repository files (`README.md`, `SKILL.md`, `.agent.md`, `instructions.md`), generate a concise README with:
+You are a documentation specialist. Based on the repository files (`README.md`, `docs.skill.md`, `.agent.md`, `docs.instructions.md`), generate a concise README with:
 - Purpose
 - Installation / setup
 - Usage

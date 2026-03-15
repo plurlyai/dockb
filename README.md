@@ -1,36 +1,61 @@
 # dockb Documentation Agent
 
-This repository stores the instruction and skill definitions for a custom documentation agent used by agent frameworks. It defines:
+This repository stores the instruction and skill definitions for a custom documentation agent. It defines:
 
-- agent behavior rules and policy guardrails
-- supported tool actions and tool bindings
-- domain knowledge and prompt templates for accurate, up-to-date docs responses
+- Agent behavior rules and policy guardrails
+- Supported tool actions and tool bindings
+- Domain knowledge and prompt templates for accurate, up-to-date docs responses
 
 ## 📁 Repository Structure
 
-This project is intentionally minimal and acts as a configuration workspace for custom agent behavior.
-
-- `README.md`: this document
-- `*.instructions.md` / `*.prompt.md` / `*.agent.md`: custom agent config files (if present)
-- `SKILL.md` or `AGENTS.md`: skill metadata and custom behavior definitions
+| File | Purpose |
+|------|---------|
+| `.agent.md` | Agent registration and tool bindings |
+| `docs.instructions.md` | Behavior rules and guardrails |
+| `docs.skill.md` | Capabilities and output expectations |
+| `docs.prompt.md` | Reusable prompt templates |
 
 ## ✅ Purpose
 
-Use this repo to capture and evolve documentation assistant behavior for a custom agent. It should contain:
+Use this repo to capture and evolve documentation assistant behavior. It contains:
 
-1. **Agent rules**: how to handle docs requests, accuracy checks, update frequency, and style.
-2. **Tool actions**: helper commands and retrieval actions (search docs, read file, summarize, API list).
-3. **Domain knowledge**: curated documentation knowledge, context, and retrieval pipelines.
+1. **Agent rules**: how to handle docs requests, accuracy checks, and style.
+2. **Tool actions**: helper commands and retrieval actions.
+3. **Domain knowledge**: curated documentation context and retrieval pipelines.
 
-## 🚀 How to Use
+## 🚀 Setup Guide (GitHub Copilot + VS Code)
 
-1. Open the repository in VS Code.
-2. Create or update agent files:
-   - `docs.instructions.md` (high-level behavior and guardrails)
-   - `docs.skill.md` (tool and domain action definitions)
-   - `docs.prompt.md` (response templates and safety prompts)
-3. Use your custom agent workflow (Copilot/Agent extension) to run docs tasks.
-4. Iterate based on usage: add new tools, update knowledge, and refine top-level instructions.
+> **Scope**: This setup applies per-repository using **GitHub Copilot** with **VS Code** as the code editor. Each repository gets its own agent configuration. Other editors or agent frameworks may require different setup steps.
+
+### Prerequisites
+
+- VS Code installed
+- GitHub Copilot extension installed and active
+- GitHub Copilot Chat extension installed
+- A target repository to add documentation agent support to
+
+### Step 1: Copy the agent definition
+
+Copy [`.agent.md`](.agent.md) into your target repository root. Update the `name`, `description`, and `applyTo` patterns to match your project.
+
+### Step 2: Copy the instructions file
+
+Copy [`docs.instructions.md`](docs.instructions.md) into your target repository root. Update the Project Context section with your project type, language, and target audience.
+
+### Step 3: Copy the skill file
+
+Copy [`docs.skill.md`](docs.skill.md) into your target repository root. Add project-specific actions as needed.
+
+### Step 4 (Optional): Copy the prompt template file
+
+Copy [`docs.prompt.md`](docs.prompt.md) into your target repository root for reusable prompt patterns.
+
+### Customizing for Your Project
+
+1. Update `docs.instructions.md` with your project context (language, framework, audience).
+2. Add project-specific actions to `docs.skill.md`.
+3. Add prompt templates to `docs.prompt.md` for recurring documentation tasks.
+4. Adjust `applyTo` patterns in `.agent.md` to match your file types.
 
 ## 🧠 Agent Design Guidelines
 
@@ -39,36 +64,16 @@ Use this repo to capture and evolve documentation assistant behavior for a custo
 - Prefer structured responses with headings and code examples when applicable.
 - Keep agent responses current by referencing repository docs or external docs in real time.
 
-## 💡 Example Components
-
-- `docs.instructions.md`:
-  - What the agent is for
-  - What it should not do
-  - Response style rules
-- `docs.skill.md`:
-  - Tool definitions (search, read, list, transform)
-  - Domain constraints and metadata
-- `docs.prompt.md`:
-  - User prompt templates
-  - Safety filters and fallback responses
-
 ## 🧩 Extending the Agent
 
 1. Add new `*.skill.md` actions for repo-specific doc tasks.
 2. Add triggered tools for file-level retrieval and summarization.
 3. Add tests or validation scripts if your agent execution layer supports them.
 
-## 📚 Notes
+## ✅ Quick Verification
 
-This repository currently has a minimal skeleton. Add your production instruction and skill definitions to enable the full documentation agent experience.
-
-## ✅ Quick verification
-
-To verify your custom doc agent behavior:
-1. Ask the agent to generate a project README from current files.
-2. Confirm output includes: purpose, setup, usage, contribution, and extension guidance.
-3. Confirm style: clear headings, bullets, short code examples, and explicit assumptions.
-
----
-
-If you want, I can also add a starter `docs.instructions.md` and `docs.skill.md` scaffold now so your custom doc agent is ready to run in one pass.
+1. Open your repo in VS Code.
+2. Open GitHub Copilot Chat (Ctrl+Shift+I / Cmd+Shift+I).
+3. Ask the agent: "Generate a project overview README."
+4. Confirm output includes: purpose, setup, usage, and contribution sections.
+5. Confirm style: clear headings, bullets, short code examples, and explicit assumptions.
