@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-03-15
+
+### Added
+
+- Setup guide for AWS Kiro custom agent integration in README, including steering/skill file mapping, inclusion modes, and expected target structure.
+- No-emoji rule in `docs.instructions.md` and `docs.skill.md` output style sections.
+- Mermaid as the standard diagramming tool in `docs.instructions.md` and `docs.skill.md` output style sections.
+
+### Changed
+
+- Removed emoji icons from all README headings.
+
 ## [0.1.0] - 2026-03-15
 
 ### Added
